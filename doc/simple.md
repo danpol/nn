@@ -55,6 +55,7 @@ Simple Modules are used for various tasks like adapting Tensor methods and provi
     * [GradientReversal](#nn.GradientReversal) : reverses the gradient (to maximize an objective function) ;
     * [GPU](#nn.GPU) : decorates a module so that it can be executed on a specific GPU device.
     * [TemporalDynamicKMaxPooling](#nn.TemporalDynamicKMaxPooling) : selects the k highest values in a sequence. k can be calculated based on sequence length ;
+    * [PairwiseEuclidean](#nn.PairwiseEuclidean) : Computes matrix of pairwise distances. May be usefull for implementing ERAE ;
 
 <a name="nn.Linear"></a>
 ## Linear ##
@@ -1565,3 +1566,12 @@ If `factor` is not provided, `k = minK`, else the value of k is calculated with:
 ```lua
 k = math.max(minK, math.ceil(factor*nInputFrame)))
 ```
+
+<a name="nn.PairwiseEuclidean"></a>
+## PairwiseEuclidean ##
+
+```lua
+module = nn.PairwiseEuclidean()
+```
+
+Computes matrix of pairwise square euclidean distances between objects from input. The `input` tensor in `forward(input)` is expected to be a 2D tensor (`batchSize x inputFeatures`). The output tensor will be (`batchSize x batchSize`)

@@ -135,6 +135,7 @@ require('nn.VolumetricMaxUnpooling')
 require('nn.VolumetricAveragePooling')
 require('nn.VolumetricBatchNormalization')
 require('nn.VolumetricReplicationPadding')
+require('nn.PairwiseEuclidean')
 
 require('nn.GPU')
 
